@@ -1,4 +1,5 @@
 <template>
+      
   <button type="button" @click="addTask" class="btn btn-primary">
     {{ text }}
   </button>
@@ -15,7 +16,11 @@ export default {
   methods: {
     addTask () {
         console.log("hello");
+        this.$emit("AddTaskToggle")
     },
   },
+ 
+
+  
 };
 </script>

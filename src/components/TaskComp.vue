@@ -1,5 +1,5 @@
 <template>
-<div :key="task.id" v-for="item in task">
+<div :key="item.id" v-for="item in task">
 <!-- <h3>{{item.text}}</h3 -->
 <SingleTask :task="item" @delete-task="$emit('delete-task',item.id)" @toggle-reminder="$emit('toggle-reminder',item.id)"/>
 
@@ -11,7 +11,7 @@
 <script>
 import SingleTask from './SingleTask.vue'
 export default {
-    name:"Task",
+    name:"TaskComp",
 
     props:{
         task:{

@@ -42,9 +42,7 @@ export default {
       console.log("res",res);
       if(res.status==200){
        this.tasks =this.tasks.filter((task)=>{return task.id!==id})
-        // 
-        +
-        console.log(resar);
+        // console.log(resar);
 
         // this.tasks
         }

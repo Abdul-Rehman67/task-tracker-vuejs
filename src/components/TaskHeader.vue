@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <ButtonComp text = "Add Task"/>
+    <ButtonComp :text="showAddTaskP ? 'Close':'Add Task'"  @AddTaskToggle="$emit('AddTaskToggle')"/>
   </header>
 </template>
 
@@ -13,6 +13,9 @@ export default {
     title: {
       type: String,
     },
+    showAddTaskP:{
+      type:Boolean
+    }
     
   },
   components:{
