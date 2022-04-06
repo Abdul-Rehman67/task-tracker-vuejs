@@ -1,16 +1,16 @@
 {
   "tasks": [
     {
-      "text": "test1",
-      "day": "test",
+      "text": "test",
+      "day": "31 March",
       "remainder": true,
-      "id": 2
+      "id": 1
     },
     {
       "text": "test2",
-      "day": "test",
+      "day": "31 March",
       "remainder": true,
-      "id": 3
+      "id": 2
     }
   ]
 }

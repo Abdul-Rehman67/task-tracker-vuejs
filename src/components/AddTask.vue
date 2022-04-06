@@ -48,6 +48,7 @@ export default{
             }
 
             this.$emit("newTask",newTask);
+            console.log("newTask===>",newTask);
         
         }
     }

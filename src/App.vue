@@ -20,7 +20,7 @@
 import TaskHeader from "./components/TaskHeader.vue";
 import TaskComp from "./components/TaskComp.vue";
 import AddTask from "./components/AddTask.vue";
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "App",
   components: {
@@ -38,17 +38,13 @@ export default {
   methods: {
     async deleteTask(id) {
       console.log("task id ===>", id);
-      const res  = await axios.delete(`http://localhost:3000/tasks/${id}`)
-      console.log("res",res);
-      if(res.status==200){
-       this.tasks =this.tasks.filter((task)=>{return task.id!==id})
-        // console.log(resar);
-
-        // this.tasks
-        }
-      
-      // res.status==200?alert("deleted"):null
-
+      const res = await axios.delete(`http://localhost:3000/tasks/${id}`);
+      console.log("res", res);
+      if (res.status == 200) {
+        this.tasks = this.tasks.filter((task) => {
+          return task.id !== id;
+        });
+      }
 
     },
     toggleRemainder(id) {
@@ -62,53 +58,28 @@ export default {
       this.showAddTask = !this.showAddTask;
     },
 
- async addTask(task) {
-      const res = await fetch("http://localhost:3000/tasks",{
-        method:'POST',
-        headers:{
-          'Content-type' : 'application/json',
+    async addTask(task) {
+      const res = await fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
         },
-          body :JSON.stringify(task)
-      })
-      const data = await res.json()
+        body: JSON.stringify(task),
+      });
+      const data = await res.json();
 
-      // const data = axios.post("http://localhost:3000/tasks",{
-      //   task
-
-      // })
-      // const data = await res.json()
       this.tasks = [...this.tasks, data];
     },
     async getTask() {
-    const res = await fetch("http://localhost:3000/tasks");
-    const data = await res.json();
-    console.log("data==>", data);
-    return data
+      const res = await axios.get("http://localhost:3000/tasks");
+      console.log("data==>", res.data);
+      return res.data;
+    },
   },
-  },
-
-  
 
   async created() {
-    // this.getTask()
-    this.tasks = await this.getTask()
-    //  this.tasks=this.fetchTask()
-    // this.getTask();
-    // this.tasks=[
-    
-    // {
-    //   id: "2",
-    //   text: "Meeting with boss",
-    //   day: "March 6th at 1:30pm",
-    //   reminder: true
-    // },
-    // {
-    //   id: "3",
-    //   text: "Food shopping",
-    //   day: "March 7th at 2:00pm",
-    //   reminder: false
-    // },
-    // ]
+    this.tasks = await this.getTask();
+   
   },
 };
 </script>
